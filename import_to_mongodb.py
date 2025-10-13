@@ -25,7 +25,6 @@ def import_to_mongodb():
                 item['created_date'] = datetime.fromisoformat(item['created_date'])
                 data.append(item)
         
-        print("📤 Inserting data into MongoDB...")
         result = collection.insert_many(data)
         
         print("🔨 Creating indexes...")
@@ -51,10 +50,6 @@ def import_to_mongodb():
         
     except Exception as e:
         print(f"Error: {e}")
-        print("\nTroubleshooting tips:")
-        print("1. Make sure MongoDB is running: sudo systemctl start mongod")
-        print("2. Check your MongoDB connection string")
-        print("3. Verify the JSON file exists in the current directory")
 
 if __name__ == "__main__":
     import_to_mongodb()

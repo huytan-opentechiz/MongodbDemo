@@ -15,13 +15,12 @@ OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     raise SystemExit("Set OPENAI_API_KEY environment variable before running.")
 
-# Config
-MODEL = "gpt-3.5-turbo"             # reliable and widely available. Change if you have access to other models.
+MODEL = "gpt-3.5-turbo"
 OPENAI_URL = "https://api.openai.com/v1/chat/completions"
 HEADERS = {"Authorization": f"Bearer {OPENAI_API_KEY}", "Content-Type": "application/json"}
 
-TOTAL = 1000         # total items to generate
-BATCH = 250          # items per request (adjust downward if you hit token/size limits)
+TOTAL = 1000
+BATCH = 2505
 MAX_RETRY = 3
 OUTFILE = "items_1000.ndjson"
 
