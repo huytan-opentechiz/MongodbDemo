@@ -12,12 +12,12 @@ def import_to_mongodb():
         client = MongoClient(MONGO_URI)
         
         client.admin.command('ping')
-        print("✅ Successfully connected to MongoDB")
+        print("Successfully connected to MongoDB")
         
         db = client[DATABASE_NAME]
         collection = db[COLLECTION_NAME]
         
-        print("📁 Reading items_10000.json...")
+        print("Reading items_10000.json...")
         with open('items_10000.json', 'r') as file:
             data = []
             for line in file:
@@ -27,14 +27,7 @@ def import_to_mongodb():
         
         result = collection.insert_many(data)
         
-        print("🔨 Creating indexes...")
-        collection.create_index("id")
-        collection.create_index("name")
-        collection.create_index("color")
-        collection.create_index("size")
-        collection.create_index("price")
-        collection.create_index("created_date")
-        collection.create_index({ "id": ASCENDING, "price": ASCENDING, "created_date": DESCENDING })
+        collection.create_index({ "price": ASCENDING, "id": ASCENDING })
 
         
         print(f"Successfully inserted {len(result.inserted_ids)} documents")
@@ -43,10 +36,6 @@ def import_to_mongodb():
         
         count = collection.count_documents({})
         print(f"Total documents in collection: {count}")
-        
-        sample = collection.find_one()
-        print(f"\nSample document:")
-        print(json.dumps(sample, indent=2, default=str))
         
     except Exception as e:
         print(f"Error: {e}")
