@@ -11,7 +11,7 @@ import json
 import requests
 from pymongo import MongoClient, InsertOne
 
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+OPENAI_API_KEY = "OPENAI_API_KEY"
 if not OPENAI_API_KEY:
     raise SystemExit("Set OPENAI_API_KEY environment variable before running.")
 
