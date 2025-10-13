@@ -26,7 +26,7 @@ except Exception as e:
 
 print(f"Initial count for query {query}: {count}")
 
-cursor = collection.find(query, projection=None).limit(LIMIT)
+cursor = collection.find(query, { "_id": 0 }).limit(LIMIT)
 docs = list(cursor)
 print(f"Fetched {len(docs)} documents (limit {LIMIT}).")
 
