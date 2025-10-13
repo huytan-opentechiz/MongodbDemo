@@ -45,7 +45,7 @@ print("Đang tạo embeddings...")
 embeddings = model.encode(texts, convert_to_numpy=True, show_progress_bar=True)
 
 pc = Pinecone(api_key=PINECONE_API_KEY)
-index_name = re.sub(r'[^a-z0-9\-]+', '-', INDEX_NAME.lower())
+index_name = INDEX_NAME.lower()
 existing_indexes = [idx["name"] for idx in pc.list_indexes()]
 
 if index_name not in existing_indexes:
@@ -77,4 +77,4 @@ for i in range(0, len(vectors), BATCH_SIZE):
     index.upsert(vectors=batch)
     print(f"Upserted {i + len(batch)}/{len(vectors)} items")
 
-print(f"✅ Hoàn tất: đã import {len(vectors)} items vào Pinecone index '{index_name}'")
+print(f"Hoàn tất: đã import {len(vectors)} items vào Pinecone index '{index_name}'")
