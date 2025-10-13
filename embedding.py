@@ -39,9 +39,7 @@ texts = [
     for item in items
 ]
 
-print("Đang load model embedding...")
 model = SentenceTransformer(MODEL_NAME)
-print("Đang tạo embeddings...")
 embeddings = model.encode(texts, convert_to_numpy=True, show_progress_bar=True)
 
 pc = Pinecone(api_key=PINECONE_API_KEY)
