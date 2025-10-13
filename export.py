@@ -21,7 +21,7 @@ query = {
 try:
     count = collection.count_documents(query)
 except Exception as e:
-    print("⚠️ count_documents raised:", repr(e))
+    print("count_documents raised:", repr(e))
     count = None
 
 print(f"Initial count for query {query}: {count}")
