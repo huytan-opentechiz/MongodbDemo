@@ -5,7 +5,7 @@ from dateutil import parser
 import re
 
 INPUT_FILE = "exported_items.json"
-PINECONE_API_KEY = "YOUR_PINECONE_API_KEY"
+PINECONE_API_KEY = "pcsk_7LjB4V_JsWcdH3nGcLDm97sovM45zTXe51rDTE2ha6enHeAjqnMQ4P1bDU888d8vsENni2"
 INDEX_NAME = "items-embeddings"
 BATCH_SIZE = 500
 MODEL_NAME = "all-MiniLM-L6-v2"
